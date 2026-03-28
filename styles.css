@@ -49,6 +49,16 @@ body {
   height: 100px;
   background: var(--topbar-color);
   border-bottom: 1px solid #d9d7d5;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+}
+
+.topbar-title {
+  color: var(--text-color);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 400;
 }
 
 .content {
