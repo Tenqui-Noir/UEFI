@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surface UEFI Style Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="viewport">
+    <main class="stage" id="stage">
+      <header class="topbar"></header>
+      <div class="content">
+        <aside class="sidebar">
+          <button class="sidebar-item active" data-panel="device-info">设备信息</button>
+          <button class="sidebar-item" data-panel="security">安全</button>
+          <button class="sidebar-item" data-panel="boot">启动项</button>
+          <button class="sidebar-item" data-panel="date-time">日期与时间</button>
+          <button class="sidebar-item" data-panel="about">关于</button>
+          <button class="sidebar-item" data-panel="exit">退出</button>
+        </aside>
+        <section class="panel-area">
+          <section class="panel active" data-panel-content="device-info">
+            <h1 class="panel-title">设备信息</h1>
+            <div class="panel-spacer-large"></div>
+            <div class="info-grid">
+              <div class="info-label">型号</div>
+              <div class="info-value">UEFI-Demo Pro 14</div>
+              <div class="info-label">系统 UUID</div>
+              <div class="info-value">550E8400-E29B-41D4-A716-446655440000</div>
+              <div class="info-label">序列号</div>
+              <div class="info-value">SN-9X4A-27Q8-1145</div>
+              <div class="info-label">资产标签</div>
+              <div class="info-value">ASSET-SH-2048</div>
+            </div>
+            <div class="section-gap"></div>
+            <h1 class="panel-title">固件</h1>
+            <div class="panel-spacer-large"></div>
+            <div class="info-grid">
+              <div class="info-label">UEFI 版本</div>
+              <div class="info-value">2.10.7 Build 1843</div>
+              <div class="info-label">固件供应商</div>
+              <div class="info-value">Open Firmware Labs</div>
+              <div class="info-label">BIOS 版本</div>
+              <div class="info-value">R12.34.0918</div>
+              <div class="info-label">发布日期</div>
+              <div class="info-value">2026-02-18</div>
+              <div class="info-label">启动模式</div>
+              <div class="info-value">UEFI Native</div>
+              <div class="info-label">安全启动</div>
+              <div class="info-value">已启用</div>
+            </div>
+          </section>
+
+          <section class="panel" data-panel-content="security">
+            <h1 class="panel-title">UEFI 密码</h1>
+            <div class="panel-spacer"></div>
+            <div class="security-copy">
+              设置密码以限制对 Surface UEFI 设置的访问。设置密码后，用户在更改这些设置时将需要输入该密码。
+            </div>
+            <div class="security-button-wrap">
+              <button class="security-button" type="button">添加或更改</button>
+            </div>
+
+            <div class="security-section-gap"></div>
+            <h1 class="panel-title">安全启动</h1>
+            <div class="panel-spacer"></div>
+            <div class="security-copy">
+              安全启动已启用，使用 Microsoft 和第三方 CA 密钥配置
+            </div>
+            <div class="security-button-wrap">
+              <button class="security-button" type="button">更改配置</button>
+            </div>
+
+            <div class="security-section-gap"></div>
+            <h1 class="panel-title">可信平台模块（TPM）</h1>
+            <div class="panel-spacer"></div>
+            <div class="security-row">
+              <div class="security-copy">启用 TPM（推荐）</div>
+              <button class="toggle-button" type="button" aria-label="TPM 已开启"></button>
+            </div>
+          </section>
+
+          <section class="panel" data-panel-content="boot">
+            <h1 class="panel-title">配置启动设备顺序</h1>
+            <div class="panel-spacer"></div>
+            <div class="security-copy boot-copy">
+              要更改搜索可启动操作系统时各设备的顺序，请将每个启动选项拖动到列表中的目标位置。使用复选框可启用或禁用某个启动选项。点击垃圾桶图标可从列表中永久移除某个启动选项。在设备上向左滑动可立即从该设备启动。
+            </div>
+            <div class="boot-list-wrap">
+              <div class="boot-list">
+                <button class="boot-item active" type="button">
+                  <span class="boot-check checked" aria-hidden="true"></span>
+                  <span class="boot-label">Windows Boot Manager</span>
+                  <span class="trash-icon" aria-hidden="true"></span>
+                </button>
+                <button class="boot-item" type="button">
+                  <span class="boot-check checked" aria-hidden="true"></span>
+                  <span class="boot-label">Internal Storage</span>
+                  <span class="trash-icon" aria-hidden="true"></span>
+                </button>
+                <button class="boot-item" type="button">
+                  <span class="boot-check checked" aria-hidden="true"></span>
+                  <span class="boot-label">USB Storage</span>
+                  <span class="trash-icon" aria-hidden="true"></span>
+                </button>
+                <button class="boot-item" type="button">
+                  <span class="boot-check checked" aria-hidden="true"></span>
+                  <span class="boot-label">PXE Network</span>
+                  <span class="trash-icon" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

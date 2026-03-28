@@ -1,0 +1,297 @@
+:root {
+  --design-width: 1920;
+  --design-height: 1080;
+  --topbar-color: #e6e5e4;
+  --sidebar-color: #f7f7f7;
+  --active-color: #8bd0f0;
+  --text-color: #000000;
+  --button-color: #e1e1e1;
+  --button-pressed-color: #cccccc;
+  --toggle-on-color: #0078d7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #d8d5d0;
+  font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+  color: var(--text-color);
+}
+
+.viewport {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: calc(var(--design-width) * 1px);
+  height: calc(var(--design-height) * 1px);
+  transform-origin: top left;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  width: 1920px;
+  height: 100px;
+  background: var(--topbar-color);
+  border-bottom: 1px solid #d9d7d5;
+}
+
+.content {
+  display: flex;
+  width: 1920px;
+  height: 980px;
+}
+
+.sidebar {
+  width: 500px;
+  height: 980px;
+  background: var(--sidebar-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-item {
+  width: 500px;
+  height: 80px;
+  border: none;
+  padding: 0 26px;
+  background: transparent;
+  color: var(--text-color);
+  text-align: left;
+  font: 400 24px/80px "Microsoft YaHei", "微软雅黑", sans-serif;
+  cursor: default;
+}
+
+.sidebar-item.active {
+  background: var(--active-color);
+  font-weight: 500;
+}
+
+.panel-area {
+  width: 1420px;
+  height: 980px;
+  padding: 30px 48px;
+  background: #ffffff;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+}
+
+.panel-spacer {
+  height: 18px;
+}
+
+.panel-spacer-large {
+  height: 28px;
+}
+
+.section-gap {
+  height: 72px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  row-gap: 14px;
+  column-gap: 520px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.security-copy,
+.info-label,
+.info-value {
+  color: var(--text-color);
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.security-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.security-section-gap {
+  height: 52px;
+}
+
+.security-button-wrap {
+  margin-top: 28px;
+}
+
+.security-button {
+  min-width: 260px;
+  height: 56px;
+  border: none;
+  padding: 0 28px;
+  background: var(--button-color);
+  color: var(--text-color);
+  font: 400 20px/56px "Microsoft YaHei", "微软雅黑", sans-serif;
+  text-align: center;
+  cursor: default;
+}
+
+.security-button:active {
+  background: var(--button-pressed-color);
+}
+
+.toggle-button {
+  position: relative;
+  width: 64px;
+  height: 24px;
+  margin-left: 321px;
+  border: none;
+  border-radius: 999px;
+  background: var(--toggle-on-color);
+  cursor: default;
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.toggle-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 42px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translateY(-50%);
+}
+
+.toggle-button.off {
+  border: 2px solid #000000;
+  background: #ffffff;
+}
+
+.toggle-button.off::after {
+  left: 3px;
+  background: #000000;
+}
+
+.boot-copy {
+  margin-top: 0;
+}
+
+.boot-list-wrap {
+  margin-top: 34px;
+}
+
+.boot-list {
+  width: 760px;
+  background: var(--sidebar-color);
+}
+
+.boot-list.flashing {
+  visibility: hidden;
+}
+
+.boot-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 78px;
+  padding: 0 22px;
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font: 400 20px/1.3 "Microsoft YaHei", "微软雅黑", sans-serif;
+  text-align: left;
+  cursor: default;
+}
+
+.boot-item.active {
+  background: var(--active-color);
+}
+
+.boot-check {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  margin-right: 18px;
+  border: 2px solid #000000;
+  background: #ffffff;
+  flex: 0 0 auto;
+  cursor: default;
+}
+
+.boot-check.checked::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  background: #000000;
+}
+
+.boot-label {
+  flex: 1 1 auto;
+}
+
+.trash-icon {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin-left: 20px;
+  flex: 0 0 auto;
+  visibility: hidden;
+}
+
+.boot-item.active .trash-icon {
+  visibility: visible;
+}
+
+.trash-icon::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 5px;
+  width: 12px;
+  height: 11px;
+  border: 2px solid #cccccc;
+  border-top: none;
+  border-radius: 0 0 2px 2px;
+}
+
+.trash-icon::after {
+  content: "";
+  position: absolute;
+  left: 1px;
+  top: 2px;
+  width: 16px;
+  height: 2px;
+  background: #cccccc;
+  box-shadow: 5px -3px 0 -1px #cccccc;
+}
