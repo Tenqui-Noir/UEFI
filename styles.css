@@ -416,3 +416,41 @@ body {
   line-height: 1.55;
   color: var(--text-color);
 }
+
+.about-copy {
+  max-width: 1120px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text-color);
+}
+
+.about-section-gap {
+  height: 42px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  row-gap: 18px;
+  column-gap: 180px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.about-label {
+  color: var(--text-color);
+}
+
+.about-value {
+  color: var(--text-color);
+}
+
+.about-list {
+  display: grid;
+  row-gap: 14px;
+  max-width: 1120px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
