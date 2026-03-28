@@ -46,7 +46,7 @@
               <div class="info-label">BIOS 版本</div>
               <div class="info-value">R12.34.0918</div>
               <div class="info-label">发布日期</div>
-              <div class="info-value">2026-02-18</div>
+              <div class="info-value">2026-03-28</div>
               <div class="info-label">启动模式</div>
               <div class="info-value">UEFI Native</div>
               <div class="info-label">安全启动</div>
@@ -79,7 +79,10 @@
             <div class="panel-spacer"></div>
             <div class="security-row">
               <div class="security-copy">启用 TPM（推荐）</div>
-              <button class="toggle-button" type="button" aria-label="TPM 已开启"></button>
+              <div class="toggle-control">
+                <button class="toggle-button" type="button" aria-label="TPM 已开启" data-toggle-key="tpm"></button>
+                <div class="toggle-text">开</div>
+              </div>
             </div>
           </section>
 
@@ -92,22 +95,22 @@
               </div>
               <div class="boot-list-wrap">
                 <div class="boot-list">
-                  <button class="boot-item active" type="button">
+                  <button class="boot-item active" type="button" data-boot-id="windows-boot-manager">
                     <span class="boot-check checked" aria-hidden="true"></span>
                     <span class="boot-label">Windows Boot Manager</span>
                     <span class="trash-icon" aria-hidden="true"></span>
                   </button>
-                  <button class="boot-item" type="button">
+                  <button class="boot-item" type="button" data-boot-id="internal-storage">
                     <span class="boot-check checked" aria-hidden="true"></span>
                     <span class="boot-label">Internal Storage</span>
                     <span class="trash-icon" aria-hidden="true"></span>
                   </button>
-                  <button class="boot-item" type="button">
+                  <button class="boot-item" type="button" data-boot-id="usb-storage">
                     <span class="boot-check checked" aria-hidden="true"></span>
                     <span class="boot-label">USB Storage</span>
                     <span class="trash-icon" aria-hidden="true"></span>
                   </button>
-                  <button class="boot-item" type="button">
+                  <button class="boot-item" type="button" data-boot-id="pxe-network">
                     <span class="boot-check checked" aria-hidden="true"></span>
                     <span class="boot-label">PXE Network</span>
                     <span class="trash-icon" aria-hidden="true"></span>
@@ -122,24 +125,39 @@
             </div>
             <div class="boot-advanced-list">
               <div class="boot-advanced-item boot-flash-group">
-                <div class="security-copy">启用备用启动顺序</div>
-                <button class="toggle-button off boot-toggle" type="button" aria-label="备用启动顺序已关闭"></button>
+                <div class="security-copy">启用 CSM 支持</div>
+                <div class="toggle-control">
+                  <button class="toggle-button off boot-toggle" type="button" aria-label="CSM 支持已关闭" data-toggle-key="csm-support"></button>
+                  <div class="toggle-text">关</div>
+                </div>
               </div>
               <div class="boot-advanced-item boot-flash-group">
                 <div class="security-copy">为 PXE 网络启动选项启用 IPv6</div>
-                <button class="toggle-button off boot-toggle" type="button" aria-label="PXE 网络启动 IPv6 已关闭"></button>
+                <div class="toggle-control">
+                  <button class="toggle-button off boot-toggle" type="button" aria-label="PXE 网络启动 IPv6 已关闭" data-toggle-key="pxe-ipv6"></button>
+                  <div class="toggle-text">关</div>
+                </div>
               </div>
               <div class="boot-advanced-item boot-flash-group">
                 <div class="security-copy">启用从 USB 设备启动</div>
-                <button class="toggle-button boot-toggle" type="button" aria-label="从 USB 设备启动已开启"></button>
+                <div class="toggle-control">
+                  <button class="toggle-button boot-toggle" type="button" aria-label="从 USB 设备启动已开启" data-toggle-key="boot-from-usb"></button>
+                  <div class="toggle-text">开</div>
+                </div>
               </div>
               <div class="boot-advanced-item boot-flash-group">
                 <div class="security-copy">启用启动配置锁</div>
-                <button class="toggle-button off boot-toggle" type="button" aria-label="启动配置锁已关闭"></button>
+                <div class="toggle-control">
+                  <button class="toggle-button off boot-toggle" type="button" aria-label="启动配置锁已关闭" data-toggle-key="boot-configuration-lock"></button>
+                  <div class="toggle-text">关</div>
+                </div>
               </div>
               <div class="boot-advanced-item boot-flash-group">
                 <div class="security-copy">启用电池限制</div>
-                <button class="toggle-button off boot-toggle" type="button" aria-label="电池限制已关闭"></button>
+                <div class="toggle-control">
+                  <button class="toggle-button off boot-toggle" type="button" aria-label="电池限制已关闭" data-toggle-key="battery-limit"></button>
+                  <div class="toggle-text">关</div>
+                </div>
               </div>
             </div>
           </section>
@@ -192,11 +210,11 @@
             <div class="date-time-form">
               <div class="date-time-row">
                 <div class="date-time-label">当前日期和时间:</div>
-                <div class="date-time-value">2026/03/28 18:42:16</div>
+                <div class="date-time-value" id="currentDateTimeValue">2026/03/28 18:42:16</div>
               </div>
               <div class="date-time-row">
                 <div class="date-time-label">新的日期和时间:</div>
-                <input class="date-time-input" type="text" value="">
+                <input class="date-time-input" id="dateTimeInput" type="text" inputmode="numeric" autocomplete="off" autocapitalize="off" spellcheck="false" value="">
               </div>
             </div>
             <div class="date-time-copy">

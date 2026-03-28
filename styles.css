@@ -12,6 +12,7 @@
 
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 html,
@@ -23,6 +24,7 @@ body {
   background: #d8d5d0;
   font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
   color: var(--text-color);
+  cursor: default;
 }
 
 .viewport {
@@ -198,6 +200,22 @@ body {
   cursor: default;
   padding: 0;
   flex: 0 0 auto;
+}
+
+.toggle-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.toggle-text {
+  display: flex;
+  gap: 10px;
+  min-width: 40px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-color);
 }
 
 .toggle-button::after {
@@ -393,6 +411,8 @@ body {
   font: 18px/36px "Microsoft YaHei", "微软雅黑", sans-serif;
   color: var(--text-color);
   outline: none;
+  ime-mode: disabled;
+  cursor: default;
 }
 
 .date-time-copy {
