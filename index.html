@@ -84,34 +84,121 @@
           </section>
 
           <section class="panel" data-panel-content="boot">
-            <h1 class="panel-title">配置启动设备顺序</h1>
-            <div class="panel-spacer"></div>
-            <div class="security-copy boot-copy">
-              要更改搜索可启动操作系统时各设备的顺序，请将每个启动选项拖动到列表中的目标位置。使用复选框可启用或禁用某个启动选项。点击垃圾桶图标可从列表中永久移除某个启动选项。在设备上向左滑动可立即从该设备启动。
-            </div>
-            <div class="boot-list-wrap">
-              <div class="boot-list">
-                <button class="boot-item active" type="button">
-                  <span class="boot-check checked" aria-hidden="true"></span>
-                  <span class="boot-label">Windows Boot Manager</span>
-                  <span class="trash-icon" aria-hidden="true"></span>
-                </button>
-                <button class="boot-item" type="button">
-                  <span class="boot-check checked" aria-hidden="true"></span>
-                  <span class="boot-label">Internal Storage</span>
-                  <span class="trash-icon" aria-hidden="true"></span>
-                </button>
-                <button class="boot-item" type="button">
-                  <span class="boot-check checked" aria-hidden="true"></span>
-                  <span class="boot-label">USB Storage</span>
-                  <span class="trash-icon" aria-hidden="true"></span>
-                </button>
-                <button class="boot-item" type="button">
-                  <span class="boot-check checked" aria-hidden="true"></span>
-                  <span class="boot-label">PXE Network</span>
-                  <span class="trash-icon" aria-hidden="true"></span>
-                </button>
+            <div class="boot-flash-group">
+              <h1 class="panel-title">配置启动设备顺序</h1>
+              <div class="panel-spacer"></div>
+              <div class="security-copy boot-copy">
+                要更改搜索可启动操作系统时各设备的顺序，请将每个启动选项拖动到列表中的目标位置。使用复选框可启用或禁用某个启动选项。点击垃圾桶图标可从列表中永久移除某个启动选项。在设备上向左滑动可立即从该设备启动。
               </div>
+              <div class="boot-list-wrap">
+                <div class="boot-list">
+                  <button class="boot-item active" type="button">
+                    <span class="boot-check checked" aria-hidden="true"></span>
+                    <span class="boot-label">Windows Boot Manager</span>
+                    <span class="trash-icon" aria-hidden="true"></span>
+                  </button>
+                  <button class="boot-item" type="button">
+                    <span class="boot-check checked" aria-hidden="true"></span>
+                    <span class="boot-label">Internal Storage</span>
+                    <span class="trash-icon" aria-hidden="true"></span>
+                  </button>
+                  <button class="boot-item" type="button">
+                    <span class="boot-check checked" aria-hidden="true"></span>
+                    <span class="boot-label">USB Storage</span>
+                    <span class="trash-icon" aria-hidden="true"></span>
+                  </button>
+                  <button class="boot-item" type="button">
+                    <span class="boot-check checked" aria-hidden="true"></span>
+                    <span class="boot-label">PXE Network</span>
+                    <span class="trash-icon" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="section-gap"></div>
+            <div class="boot-flash-group">
+              <h1 class="panel-title">高级选项</h1>
+              <div class="panel-spacer"></div>
+            </div>
+            <div class="boot-advanced-list">
+              <div class="boot-advanced-item boot-flash-group">
+                <div class="security-copy">启用备用启动顺序</div>
+                <button class="toggle-button off boot-toggle" type="button" aria-label="备用启动顺序已关闭"></button>
+              </div>
+              <div class="boot-advanced-item boot-flash-group">
+                <div class="security-copy">为 PXE 网络启动选项启用 IPv6</div>
+                <button class="toggle-button off boot-toggle" type="button" aria-label="PXE 网络启动 IPv6 已关闭"></button>
+              </div>
+              <div class="boot-advanced-item boot-flash-group">
+                <div class="security-copy">启用从 USB 设备启动</div>
+                <button class="toggle-button boot-toggle" type="button" aria-label="从 USB 设备启动已开启"></button>
+              </div>
+              <div class="boot-advanced-item boot-flash-group">
+                <div class="security-copy">启用启动配置锁</div>
+                <button class="toggle-button off boot-toggle" type="button" aria-label="启动配置锁已关闭"></button>
+              </div>
+              <div class="boot-advanced-item boot-flash-group">
+                <div class="security-copy">启用电池限制</div>
+                <button class="toggle-button off boot-toggle" type="button" aria-label="电池限制已关闭"></button>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel" data-panel-content="about">
+            <h1 class="panel-title">关于 Aether UEFI</h1>
+            <div class="panel-spacer-large"></div>
+            <div class="about-copy">
+              Aether UEFI 是一个用于演示启动流程、恢复流程与登录流程衔接关系的固件界面原型。它不对应任何真实出厂设备，而是面向交互展示、视觉复刻与状态流模拟而设计。
+            </div>
+            <div class="about-section-gap"></div>
+            <div class="about-grid">
+              <div class="about-label">项目版本</div>
+              <div class="about-value">Aether UEFI Preview 0.9</div>
+              <div class="about-label">界面风格</div>
+              <div class="about-value">Surface UEFI Inspired</div>
+              <div class="about-label">渲染方式</div>
+              <div class="about-value">Static HTML / CSS / JavaScript</div>
+              <div class="about-label">目标用途</div>
+              <div class="about-value">UEFI、WinRE 与 Windows 登录流程演示</div>
+              <div class="about-label">当前状态</div>
+              <div class="about-value">可交互原型</div>
+            </div>
+            <div class="about-section-gap"></div>
+            <h1 class="panel-title">主要能力</h1>
+            <div class="panel-spacer"></div>
+            <div class="about-list">
+              <div>支持设备信息、安全、启动项、日期与时间等页面布局演示</div>
+              <div>支持启动项勾选、排序与局部闪屏模拟</div>
+              <div>支持固件设置变化对后续启动行为的扩展设计</div>
+              <div>适合继续扩展为 WinRE、BitLocker 与登录页联动体验</div>
+            </div>
+          </section>
+
+          <section class="panel" data-panel-content="date-time">
+            <h1 class="panel-title">设置日期和时间</h1>
+            <div class="panel-spacer date-time-title-spacer"></div>
+            <div class="date-time-subtitle">设置日期和时间菜单</div>
+            <div class="date-time-form">
+              <div class="date-time-row">
+                <div class="date-time-label">当前日期和时间:</div>
+                <div class="date-time-value">2026/03/28 18:42:16</div>
+              </div>
+              <div class="date-time-row">
+                <div class="date-time-label">新的日期和时间:</div>
+                <input class="date-time-input" type="text" value="">
+              </div>
+            </div>
+            <div class="date-time-copy">
+              要设置新的日期和时间，请在“新的日期和时间”编辑框中填写新的日期和时间。填写完成后，按 Enter 提交。
+            </div>
+            <div class="date-time-copy">
+              日期和时间字符串的格式为 YYYY/MM/DD HH:MM:SS。24 小时制必须使用 0 到 23 的数字表示。分隔符 / 和 : 是可选项，也可用空格替代。YYYY 为必填项，其他为选填项，未设置的字段将保持不变。
+            </div>
+            <div class="date-time-examples-intro">以下是一些有效示例</div>
+            <div class="date-time-examples">
+              <div>示例 1 - 2020/02/14 05 52 00</div>
+              <div>示例 2 - 2020/2/14 5:52</div>
+              <div>示例 3 - 2020/2</div>
             </div>
           </section>
         </section>

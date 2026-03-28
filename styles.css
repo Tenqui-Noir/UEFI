@@ -103,6 +103,10 @@ body {
   visibility: hidden;
 }
 
+.delay-reveal {
+  visibility: hidden;
+}
+
 .panel {
   display: none;
 }
@@ -125,6 +129,10 @@ body {
 
 .panel-spacer-large {
   height: 28px;
+}
+
+.date-time-title-spacer {
+  height: 34px;
 }
 
 .section-gap {
@@ -218,8 +226,37 @@ body {
   margin-top: 0;
 }
 
+.boot-flash-group.flashing {
+  visibility: hidden;
+}
+
 .boot-list-wrap {
   margin-top: 34px;
+}
+
+.boot-advanced-list {
+  width: 980px;
+}
+
+.boot-advanced-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 56px;
+}
+
+.boot-advanced-item + .boot-advanced-item {
+  margin-top: 18px;
+}
+
+.boot-advanced-item .security-copy {
+  flex: 1 1 auto;
+  line-height: 1.5;
+}
+
+.boot-advanced-item .toggle-button {
+  margin-left: 0;
 }
 
 .boot-list {
@@ -239,6 +276,7 @@ body {
   font: 400 20px/1.3 "Microsoft YaHei", "微软雅黑", sans-serif;
   text-align: left;
   cursor: default;
+  user-select: none;
 }
 
 .boot-item.active {
@@ -304,4 +342,77 @@ body {
   height: 2px;
   background: #cccccc;
   box-shadow: 5px -3px 0 -1px #cccccc;
+}
+
+.date-time-subtitle {
+  margin-bottom: 34px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.date-time-form {
+  width: 760px;
+  margin-bottom: 34px;
+}
+
+.date-time-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  column-gap: 300px;
+  min-height: 44px;
+}
+
+.date-time-row + .date-time-row {
+  margin-top: 34px;
+}
+
+.date-time-label {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.date-time-value {
+  width: 240px;
+  height: 36px;
+  padding: 0 10px;
+  background: #f5f5f5;
+  font-size: 18px;
+  line-height: 36px;
+  color: var(--text-color);
+}
+
+.date-time-input {
+  width: 240px;
+  height: 36px;
+  border: none;
+  padding: 0 10px;
+  background: #f5f5f5;
+  font: 18px/36px "Microsoft YaHei", "微软雅黑", sans-serif;
+  color: var(--text-color);
+  outline: none;
+}
+
+.date-time-copy {
+  max-width: 1040px;
+  margin-top: 14px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text-color);
+}
+
+.date-time-examples {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.date-time-examples-intro {
+  margin-top: 18px;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--text-color);
 }
