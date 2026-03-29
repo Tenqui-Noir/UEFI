@@ -3,6 +3,7 @@ const DESIGN_HEIGHT = 1080;
 const STORAGE_KEY = "aether-uefi-state";
 
 const stage = document.getElementById("stage");
+const screenFlashOverlay = document.getElementById("screenFlashOverlay");
 const panelArea = document.querySelector(".panel-area");
 const sidebarItems = Array.from(document.querySelectorAll(".sidebar-item"));
 const panels = Array.from(document.querySelectorAll(".panel"));
@@ -411,6 +412,24 @@ function flashPanelAreaOnModalClose() {
   }, 10);
 }
 
+function flashSidebarSwitch() {
+  if (!screenFlashOverlay) {
+    return;
+  }
+
+  const modes = ["full", "half-top", "half-bottom"];
+  const mode = modes[Math.floor(Math.random() * modes.length)];
+  screenFlashOverlay.className = "screen-flash-overlay";
+  if (mode !== "full") {
+    screenFlashOverlay.classList.add(mode);
+  }
+  screenFlashOverlay.hidden = false;
+  window.setTimeout(() => {
+    screenFlashOverlay.hidden = true;
+    screenFlashOverlay.className = "screen-flash-overlay";
+  }, 10);
+}
+
 function getOpenModal() {
   if (authPasswordDialog && !authPasswordDialog.hidden) {
     return authPasswordDialog;
@@ -611,7 +630,8 @@ function syncDeleteBootActionSelection(index) {
   });
 }
 
-function setActivePanel(panelKey) {
+function setActivePanel(panelKey, options = {}) {
+  const { flash = true } = options;
   if (dateTimeInput) {
     dateTimeInput.value = "";
   }
@@ -632,6 +652,9 @@ function setActivePanel(panelKey) {
     resetBootHighlight();
   }
   applyKeyboardSelection();
+  if (flash) {
+    flashSidebarSwitch();
+  }
 }
 
 function syncModalInputSelection(index) {
@@ -717,6 +740,14 @@ function finishAuthGateReveal() {
   }, 1500);
 }
 
+function finishAuthGateRevealFast() {
+  document.body.classList.remove("auth-gate");
+  document.body.classList.add("auth-gate-reveal-fast");
+  window.setTimeout(() => {
+    document.body.classList.remove("auth-gate-reveal-fast");
+  }, 90);
+}
+
 function restartIntoUefi() {
   restrictedMode = false;
   syncRestrictedMode();
@@ -724,7 +755,7 @@ function restartIntoUefi() {
   clearKeyboardSelection();
   navigationArea = "sidebar";
   sidebarKeyboardIndex = 0;
-  setActivePanel("device-info");
+  setActivePanel("device-info", { flash: false });
 
   if (persistedState.uefiPassword) {
     window.setTimeout(() => {
@@ -1485,7 +1516,7 @@ function submitAuthPassword() {
     restrictedMode = false;
     syncRestrictedMode();
     closeAuthPasswordDialog();
-    finishAuthGateReveal();
+    finishAuthGateRevealFast();
     return true;
   }
   if (authPasswordError) {
@@ -1557,7 +1588,7 @@ window.addEventListener("keydown", (event) => {
       restrictedMode = true;
       syncRestrictedMode();
       closeAuthPasswordDialog();
-      finishAuthGateReveal();
+      finishAuthGateRevealFast();
       return;
     }
 
@@ -1984,6 +2015,6 @@ if (authPasswordCancelButton) {
     restrictedMode = true;
     syncRestrictedMode();
     closeAuthPasswordDialog();
-    finishAuthGateReveal();
+    finishAuthGateRevealFast();
   });
 }

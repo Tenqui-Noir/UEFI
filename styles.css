@@ -56,6 +56,27 @@ body {
   height: 100%;
 }
 
+.screen-flash-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  opacity: 0.96;
+  z-index: 900;
+  pointer-events: none;
+}
+
+.screen-flash-overlay.half-top {
+  height: 50%;
+}
+
+.screen-flash-overlay.half-bottom {
+  top: 50%;
+  height: 50%;
+}
+
 body.auth-gate .stage {
   background: #000000;
 }
@@ -67,6 +88,11 @@ body.auth-gate .uefi-shell {
 body.auth-gate-reveal .uefi-shell {
   visibility: visible;
   animation: uefi-reveal 120ms steps(22, end) forwards;
+}
+
+body.auth-gate-reveal-fast .uefi-shell {
+  visibility: visible;
+  animation: uefi-reveal 80ms steps(24, end) forwards;
 }
 
 .topbar {
