@@ -10,61 +10,69 @@
   <div class="viewport">
     <main class="stage" id="stage">
       <div class="auth-gate-screen" id="authGateScreen" aria-hidden="true">
-        <img class="auth-gate-logo" src="img/logo_UEFI.png" alt="">
+        <div class="auth-gate-content">
+          <img class="auth-gate-logo" src="img/logo_UEFI.png" alt="">
+          <div class="auth-gate-wait">请稍后</div>
+        </div>
       </div>
+
       <div class="pre-uefi-screen" id="preUefiScreen" hidden>
         <div class="pre-uefi-view is-active" id="preUefiMainView">
-        <div class="pre-uefi-title">选择一个选项</div>
-        <div class="pre-uefi-actions">
-          <div class="pre-uefi-column">
-            <button class="pre-uefi-action pre-uefi-interactive is-selected" id="enterUefiButton" type="button">
-              <span class="pre-uefi-action-icon" aria-hidden="true">
-                <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
-                  <path fill="currentColor" d="M34.678 10.016a1.6 1.6 0 0 0-2.157 2.367L52.263 30.4H8a1.6 1.6 0 1 0 0 3.2h44.264L32.52 51.616a1.6 1.6 0 0 0 2.157 2.367l22.133-20.214a2.39 2.39 0 0 0 0-3.546z"/>
-                </svg>
-              </span>
-              <span class="pre-uefi-action-copy">
-                <span class="pre-uefi-action-title">继续</span>
-                <span class="pre-uefi-action-subtitle">退出并继续使用 Windows</span>
-              </span>
-            </button>
-            <button class="pre-uefi-action pre-uefi-interactive" id="useDeviceButton" type="button">
-              <span class="pre-uefi-action-icon" aria-hidden="true">
-                <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
-                  <path fill="currentColor" d="M24 6.4h16A1.6 1.6 0 0 1 41.6 8v11.2A6.4 6.4 0 0 1 48 25.6v25.6a6.4 6.4 0 0 1-6.4 6.4H22.4a6.4 6.4 0 0 1-6.4-6.4V25.6a6.4 6.4 0 0 1 6.4-6.4V8A1.6 1.6 0 0 1 24 6.4m12.8 12.8V9.6H25.6v9.6zM22.4 22.4a3.2 3.2 0 0 0-3.2 3.2v25.6a3.2 3.2 0 0 0 3.2 3.2h19.2a3.2 3.2 0 0 0 3.2-3.2V25.6a3.2 3.2 0 0 0-3.2-3.2z"/>
-                </svg>
-              </span>
-              <span class="pre-uefi-action-copy">
-                <span class="pre-uefi-action-title">使用设备</span>
-                <span class="pre-uefi-action-subtitle">使用 U 盘、网络连接或 Windows 恢复 DVD</span>
-              </span>
-            </button>
-            <button class="pre-uefi-action pre-uefi-interactive" type="button">
-              <span class="pre-uefi-action-icon" aria-hidden="true">
-                <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
-                  <path fill="currentColor" d="M54.4 49.776V33.6q0-.492-.224-.873a1.18 1.18 0 0 0-.55-.476a3.2 3.2 0 0 0-.752-.2a6.4 6.4 0 0 0-.822-.051H51.2V16.374q.15-.322.425-.774a17 17 0 0 0 .972-2.307q.249-.556.45-1.023q.201-.47.201-.77q0-.28-.224-1.024a22 22 0 0 0-.503-1.578L51.944 7.3q-.378-1.059-.37-1.099a1.82 1.82 0 0 0-.601-.8A1.5 1.5 0 0 0 50.048 5H43.52q-.497 0-.95.326q-.452.327-.576.774q-.126.376-.4 1.123q-.28.75-.55 1.6q-.273.846-.5 1.578q-.218.725-.218 1q0 .359.2.8q.2.45.475 1.003q.272.553.548 1.005q.275.45.377.638V32h-.87q-.45 0-.845.05a2.3 2.3 0 0 0-.752.224q-.355.173-.548.476q-.202.303-.201.851v16.175q0 1.622.651 3.05q.65 1.43 1.75 2.5a7.8 7.8 0 0 0 2.55 1.673q1.448.627 3.046.627q1.6 0 3.046-.627a8.5 8.5 0 0 0 4.3-4.17a7.4 7.4 0 0 0 .65-3.053M48 32h-3.2V16a1.6 1.6 0 0 0-.176-.726l-1.3-2.598l1.024-3.076h4.103l1.024 3.073l-1.3 2.6A1.6 1.6 0 0 0 48 16zm-6.4 6.4v-3.2h9.6v3.2zm9.6 3.2v8q.025.951-.374 1.85a5.2 5.2 0 0 1-1.05 1.552a4.9 4.9 0 0 1-1.528 1.043q-.885.38-1.848.355a4.2 4.2 0 0 1-1.85-.374a4.9 4.9 0 0 1-1.548-1.05a4.8 4.8 0 0 1-1.4-3.374V41.6zM19.2 6.734a1.6 1.6 0 0 0-2.202-1.484A14.4 14.4 0 0 0 16 31.305V49.6a6.4 6.4 0 0 0 12.8 0V31.307A14.4 14.4 0 0 0 27.802 5.05A1.6 1.6 0 0 0 25.6 6.534V17.6a3.2 3.2 0 1 1-6.4 0zM11.2 18.4c0-3.807 1.898-7.167 4.8-9.198v8.387a6.4 6.4 0 1 0 12.8 0V9.202A11.2 11.2 0 0 1 26.598 28.78A1.6 1.6 0 0 0 25.6 30.272V49.6a3.2 3.2 0 1 1-6.4 0V30.272a1.6 1.6 0 0 0-.998-1.483A11.2 11.2 0 0 1 11.2 18.4"/>
-                </svg>
-              </span>
-              <span class="pre-uefi-action-copy">
-                <span class="pre-uefi-action-title">疑难解答</span>
-                <span class="pre-uefi-action-subtitle">重置你的电脑或查看高级选项</span>
-              </span>
-            </button>
-          </div>
-          <div class="pre-uefi-column pre-uefi-column-side">
-            <button class="pre-uefi-action pre-uefi-action-compact pre-uefi-interactive" type="button">
-              <span class="pre-uefi-action-icon" aria-hidden="true">
-                <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
-                  <path fill="currentColor" d="M33.6 8a1.6 1.6 0 0 0-3.2 0v19.2a1.6 1.6 0 0 0 3.2 0zm10.345 4.8a1.6 1.6 0 1 0-1.598 2.775A20.8 20.8 0 1 1 21.56 15.59a1.6 1.6 0 1 0-1.6-2.771a24 24 0 1 0 23.985-.02"/>
-                </svg>
-              </span>
-              <span class="pre-uefi-action-copy">
-                <span class="pre-uefi-action-title">关闭电脑</span>
-              </span>
-            </button>
+          <div class="pre-uefi-title">选择一个选项</div>
+          <div class="pre-uefi-actions">
+            <div class="pre-uefi-column">
+              <button class="pre-uefi-action pre-uefi-interactive is-selected" id="enterUefiButton" type="button">
+                <span class="pre-uefi-action-icon" aria-hidden="true">
+                  <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="currentColor" d="M34.678 10.016a1.6 1.6 0 0 0-2.157 2.367L52.263 30.4H8a1.6 1.6 0 1 0 0 3.2h44.264L32.52 51.616a1.6 1.6 0 0 0 2.157 2.367l22.133-20.214a2.39 2.39 0 0 0 0-3.546z"/>
+                  </svg>
+                </span>
+                <span class="pre-uefi-action-copy">
+                  <span class="pre-uefi-action-title">继续</span>
+                  <span class="pre-uefi-action-subtitle">退出并继续使用现有操作系统</span>
+                </span>
+              </button>
+
+              <button class="pre-uefi-action pre-uefi-interactive" id="useDeviceButton" type="button">
+                <span class="pre-uefi-action-icon" aria-hidden="true">
+                  <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="currentColor" d="M24 6.4h16A1.6 1.6 0 0 1 41.6 8v11.2A6.4 6.4 0 0 1 48 25.6v25.6a6.4 6.4 0 0 1-6.4 6.4H22.4a6.4 6.4 0 0 1-6.4-6.4V25.6a6.4 6.4 0 0 1 6.4-6.4V8A1.6 1.6 0 0 1 24 6.4m12.8 12.8V9.6H25.6v9.6zM22.4 22.4a3.2 3.2 0 0 0-3.2 3.2v25.6a3.2 3.2 0 0 0 3.2 3.2h19.2a3.2 3.2 0 0 0 3.2-3.2V25.6a3.2 3.2 0 0 0-3.2-3.2z"/>
+                  </svg>
+                </span>
+                <span class="pre-uefi-action-copy">
+                  <span class="pre-uefi-action-title">使用设备</span>
+                  <span class="pre-uefi-action-subtitle">使用 U 盘、网络连接或 Windows 恢复 DVD</span>
+                </span>
+              </button>
+
+              <button class="pre-uefi-action pre-uefi-interactive" type="button">
+                <span class="pre-uefi-action-icon" aria-hidden="true">
+                  <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="currentColor" d="M54.4 49.776V33.6q0-.492-.224-.873a1.18 1.18 0 0 0-.55-.476a3.2 3.2 0 0 0-.752-.2a6.4 6.4 0 0 0-.822-.051H51.2V16.374q.15-.322.425-.774a17 17 0 0 0 .972-2.307q.249-.556.45-1.023q.201-.47.201-.77q0-.28-.224-1.024a22 22 0 0 0-.503-1.578L51.944 7.3q-.378-1.059-.37-1.099a1.82 1.82 0 0 0-.601-.8A1.5 1.5 0 0 0 50.048 5H43.52q-.497 0-.95.326q-.452.327-.576.774q-.126.376-.4 1.123q-.28.75-.55 1.6q-.273.846-.5 1.578q-.218.725-.218 1q0 .359.2.8q.2.45.475 1.003q.272.553.548 1.005q.275.45.377.638V32h-.87q-.45 0-.845.05a2.3 2.3 0 0 0-.752.224q-.355.173-.548.476q-.202.303-.201.851v16.175q0 1.622.651 3.05q.65 1.43 1.75 2.5a7.8 7.8 0 0 0 2.55 1.673q1.448.627 3.046.627q1.6 0 3.046-.627a8.5 8.5 0 0 0 4.3-4.17a7.4 7.4 0 0 0 .65-3.053M48 32h-3.2V16a1.6 1.6 0 0 0-.176-.726l-1.3-2.598l1.024-3.076h4.103l1.024 3.073l-1.3 2.6A1.6 1.6 0 0 0 48 16zm-6.4 6.4v-3.2h9.6v3.2zm9.6 3.2v8q.025.951-.374 1.85a5.2 5.2 0 0 1-1.05 1.552a4.9 4.9 0 0 1-1.528 1.043q-.885.38-1.848.355a4.2 4.2 0 0 1-1.85-.374a4.9 4.9 0 0 1-1.548-1.05a4.8 4.8 0 0 1-1.4-3.374V41.6zM19.2 6.734a1.6 1.6 0 0 0-2.202-1.484A14.4 14.4 0 0 0 16 31.305V49.6a6.4 6.4 0 0 0 12.8 0V31.307A14.4 14.4 0 0 0 27.802 5.05A1.6 1.6 0 0 0 25.6 6.534V17.6a3.2 3.2 0 1 1-6.4 0zM11.2 18.4c0-3.807 1.898-7.167 4.8-9.198v8.387a6.4 6.4 0 1 0 12.8 0V9.202A11.2 11.2 0 0 1 26.598 28.78A1.6 1.6 0 0 0 25.6 30.272V49.6a3.2 3.2 0 1 1-6.4 0V30.272a1.6 1.6 0 0 0-.998-1.483A11.2 11.2 0 0 1 11.2 18.4"/>
+                  </svg>
+                </span>
+                <span class="pre-uefi-action-copy">
+                  <span class="pre-uefi-action-title">疑难解答</span>
+                  <span class="pre-uefi-action-subtitle">重置你的电脑或查看高级选项</span>
+                </span>
+              </button>
+            </div>
+
+            <div class="pre-uefi-column pre-uefi-column-side">
+              <button class="pre-uefi-action pre-uefi-action-compact pre-uefi-interactive" type="button">
+                <span class="pre-uefi-action-icon" aria-hidden="true">
+                  <svg class="pre-uefi-icon-svg" viewBox="0 0 64 64" aria-hidden="true">
+                    <path fill="currentColor" d="M33.6 8a1.6 1.6 0 0 0-3.2 0v19.2a1.6 1.6 0 0 0 3.2 0zm10.345 4.8a1.6 1.6 0 1 0-1.598 2.775A20.8 20.8 0 1 1 21.56 15.59a1.6 1.6 0 1 0-1.6-2.771a24 24 0 1 0 23.985-.02"/>
+                  </svg>
+                </span>
+                <span class="pre-uefi-action-copy">
+                  <span class="pre-uefi-action-title">关闭电脑</span>
+                </span>
+              </button>
+            </div>
           </div>
         </div>
-        </div>
+
         <div class="pre-uefi-view" id="devicePageView">
           <div class="device-page-header">
             <button class="device-page-title-back pre-uefi-interactive is-selected" id="devicePageBackButton" type="button" aria-label="返回">
@@ -80,306 +88,320 @@
           <div class="device-page-empty">无可用设备。</div>
         </div>
       </div>
+
       <div class="uefi-shell" id="uefiShell">
-      <header class="topbar">
-        <div class="topbar-title">Aether UEFI</div>
-      </header>
-      <div class="content">
-        <aside class="sidebar">
-          <button class="sidebar-item active" data-panel="device-info">设备信息</button>
-          <button class="sidebar-item" data-panel="security">安全</button>
-          <button class="sidebar-item" data-panel="boot">启动项</button>
-          <button class="sidebar-item" data-panel="date-time">日期与时间</button>
-          <button class="sidebar-item" data-panel="about">关于</button>
-          <button class="sidebar-item" data-panel="exit">退出</button>
-        </aside>
-        <section class="panel-area">
-          <section class="panel active" data-panel-content="device-info">
-            <h1 class="panel-title">设备信息</h1>
-            <div class="panel-spacer-large"></div>
-            <div class="info-grid">
-              <div class="info-label">型号</div>
-              <div class="info-value">UEFI-Demo Pro 14</div>
-              <div class="info-label">系统 UUID</div>
-              <div class="info-value">550E8400-E29B-41D4-A716-446655440000</div>
-              <div class="info-label">序列号</div>
-              <div class="info-value">SN-9X4A-27Q8-1145</div>
-              <div class="info-label">资产标签</div>
-              <div class="info-value">ASSET-SH-2048</div>
-            </div>
-            <div class="section-gap"></div>
-            <h1 class="panel-title">固件</h1>
-            <div class="panel-spacer-large"></div>
-            <div class="info-grid">
-              <div class="info-label">UEFI 版本</div>
-              <div class="info-value">2.10.7 Build 1843</div>
-              <div class="info-label">固件供应商</div>
-              <div class="info-value">Open Firmware Labs</div>
-              <div class="info-label">BIOS 版本</div>
-              <div class="info-value">R12.34.0918</div>
-              <div class="info-label">发布日期</div>
-              <div class="info-value">2026-03-28</div>
-              <div class="info-label">启动模式</div>
-              <div class="info-value">UEFI Native</div>
-              <div class="info-label">安全启动</div>
-              <div class="info-value">已启用</div>
-            </div>
-          </section>
+        <header class="topbar">
+          <div class="topbar-title">Aether UEFI</div>
+        </header>
 
-          <section class="panel" data-panel-content="security">
-            <h1 class="panel-title">UEFI 密码</h1>
-            <div class="panel-spacer"></div>
-            <div class="security-copy">
-              设置密码以限制对 Aether UEFI 设置的访问。设置密码后，用户在更改这些设置时将需要输入该密码。
-            </div>
-            <div class="security-button-wrap">
-              <button class="security-button" type="button">添加或更改</button>
-            </div>
+        <div class="content">
+          <aside class="sidebar">
+            <button class="sidebar-item active" data-panel="device-info">设备信息</button>
+            <button class="sidebar-item" data-panel="security">安全</button>
+            <button class="sidebar-item" data-panel="boot">启动项</button>
+            <button class="sidebar-item" data-panel="date-time">日期与时间</button>
+            <button class="sidebar-item" data-panel="about">关于</button>
+            <button class="sidebar-item" data-panel="exit">退出</button>
+          </aside>
 
-            <div class="security-section-gap"></div>
-            <h1 class="panel-title">安全启动</h1>
-            <div class="panel-spacer"></div>
-            <div class="security-copy" id="secureBootSummary">
-              安全启动已启用，使用 Microsoft 和第三方 CA 密钥集配置
-            </div>
-            <div class="security-button-wrap">
-              <button class="security-button" type="button">更改配置</button>
-            </div>
-
-            <div class="security-section-gap"></div>
-            <h1 class="panel-title">可信平台模块（TPM）</h1>
-            <div class="panel-spacer"></div>
-            <div class="security-row">
-              <div class="security-copy">启用 TPM（推荐）</div>
-              <div class="toggle-control">
-                <button class="toggle-button" type="button" aria-label="TPM 已开启" data-toggle-key="tpm"></button>
-                <div class="toggle-text">开</div>
+          <section class="panel-area">
+            <section class="panel active" data-panel-content="device-info">
+              <h1 class="panel-title">设备信息</h1>
+              <div class="panel-spacer-large"></div>
+              <div class="info-grid">
+                <div class="info-label">型号</div>
+                <div class="info-value">UEFI-Demo Pro 14</div>
+                <div class="info-label">系统 UUID</div>
+                <div class="info-value">550E8400-E29B-41D4-A716-446655440000</div>
+                <div class="info-label">序列号</div>
+                <div class="info-value">SN-9X4A-27Q8-1145</div>
+                <div class="info-label">资产标签</div>
+                <div class="info-value">ASSET-SH-2048</div>
               </div>
-            </div>
-          </section>
 
-          <section class="panel" data-panel-content="boot">
-            <div class="boot-flash-group boot-config-section" id="bootConfigSection">
-              <h1 class="panel-title">配置启动设备顺序</h1>
+              <div class="section-gap"></div>
+
+              <h1 class="panel-title">固件</h1>
+              <div class="panel-spacer-large"></div>
+              <div class="info-grid">
+                <div class="info-label">UEFI 版本</div>
+                <div class="info-value">2.10.7 Build 1843</div>
+                <div class="info-label">固件供应商</div>
+                <div class="info-value">Open Firmware Labs</div>
+                <div class="info-label">BIOS 版本</div>
+                <div class="info-value">R12.34.0918</div>
+                <div class="info-label">发布日期</div>
+                <div class="info-value">2026-03-28</div>
+                <div class="info-label">启动模式</div>
+                <div class="info-value">UEFI Native</div>
+                <div class="info-label">安全启动</div>
+                <div class="info-value">已启用</div>
+              </div>
+            </section>
+
+            <section class="panel" data-panel-content="security">
+              <h1 class="panel-title">UEFI 密码</h1>
               <div class="panel-spacer"></div>
-              <div class="security-copy boot-copy">
-                要更改搜索可启动操作系统时各设备的顺序，请将每个启动选项拖动到列表中的目标位置。使用复选框可启用或禁用某个启动选项。点击垃圾桶图标可从列表中永久移除某个启动选项。在设备上向左滑动可立即从该设备启动。
+              <div class="security-copy">
+                设置密码以限制对 Aether UEFI 设置的访问。设置密码后，用户在更改这些设置时将需要输入该密码。
               </div>
-              <div class="boot-list-wrap boot-config-list-wrap" id="bootConfigListWrap">
-                <div class="boot-list" id="bootConfigList">
-                  <button class="boot-item active" type="button" data-boot-id="windows-boot-manager">
-                    <span class="boot-check checked" aria-hidden="true"></span>
-                    <span class="boot-label">Windows Boot Manager</span>
-                    <span class="trash-icon" aria-hidden="true"></span>
-                  </button>
-                  <button class="boot-item" type="button" data-boot-id="internal-storage">
-                    <span class="boot-check checked" aria-hidden="true"></span>
-                    <span class="boot-label">Internal Storage</span>
-                    <span class="trash-icon" aria-hidden="true"></span>
-                  </button>
-                  <button class="boot-item" type="button" data-boot-id="usb-storage">
-                    <span class="boot-check checked" aria-hidden="true"></span>
-                    <span class="boot-label">USB Storage</span>
-                    <span class="trash-icon" aria-hidden="true"></span>
-                  </button>
-                  <button class="boot-item" type="button" data-boot-id="pxe-network">
-                    <span class="boot-check checked" aria-hidden="true"></span>
-                    <span class="boot-label">PXE Network</span>
-                    <span class="trash-icon" aria-hidden="true"></span>
-                  </button>
-                </div>
+              <div class="security-button-wrap">
+                <button class="security-button" type="button">添加或更改</button>
               </div>
-            </div>
-            <div class="section-gap"></div>
-            <div class="boot-flash-group">
-              <h1 class="panel-title">高级选项</h1>
+
+              <div class="security-section-gap"></div>
+              <h1 class="panel-title">安全启动</h1>
               <div class="panel-spacer"></div>
-            </div>
-            <div class="boot-advanced-list">
-              <div class="boot-advanced-item boot-flash-group">
-                <div class="security-copy">启用 CSM 支持</div>
-                <div class="toggle-control">
-                  <button class="toggle-button off boot-toggle" type="button" aria-label="CSM 支持已关闭" data-toggle-key="csm-support"></button>
-                  <div class="toggle-text">关</div>
-                </div>
+              <div class="security-copy" id="secureBootSummary">
+                安全启动已启用，使用 Microsoft 和第三方 CA 密钥集配置
               </div>
-              <div class="boot-advanced-item boot-flash-group">
-                <div class="security-copy">远程唤醒（WoL）</div>
-                <div class="toggle-control">
-                  <button class="toggle-button off boot-toggle" type="button" aria-label="PXE 网络启动 IPv6 已关闭" data-toggle-key="pxe-ipv6"></button>
-                  <div class="toggle-text">关</div>
-                </div>
+              <div class="security-button-wrap">
+                <button class="security-button" type="button">更改配置</button>
               </div>
-              <div class="boot-advanced-item boot-flash-group">
-                <div class="security-copy">从 USB 设备启动</div>
+
+              <div class="security-section-gap"></div>
+              <h1 class="panel-title">可信平台模块（TPM）</h1>
+              <div class="panel-spacer"></div>
+              <div class="security-row">
+                <div class="security-copy">启用 TPM（推荐）</div>
                 <div class="toggle-control">
-                  <button class="toggle-button boot-toggle" type="button" aria-label="从 USB 设备启动已开启" data-toggle-key="boot-from-usb"></button>
+                  <button class="toggle-button" type="button" aria-label="TPM 已开启" data-toggle-key="tpm"></button>
                   <div class="toggle-text">开</div>
                 </div>
               </div>
-              <div class="boot-advanced-item boot-flash-group">
-                <div class="security-copy">启用启动配置锁</div>
-                <div class="toggle-control">
-                  <button class="toggle-button off boot-toggle" type="button" aria-label="启动配置锁已关闭" data-toggle-key="boot-configuration-lock"></button>
-                  <div class="toggle-text">关</div>
+            </section>
+
+            <section class="panel" data-panel-content="boot">
+              <div class="boot-flash-group boot-config-section" id="bootConfigSection">
+                <h1 class="panel-title">配置启动设备顺序</h1>
+                <div class="panel-spacer"></div>
+                <div class="security-copy boot-copy">
+                  要更改搜索可启动操作系统时各设备的顺序，请将每个启动选项拖动到列表中的目标位置。使用复选框可启用或禁用某个启动选项。点击垃圾桶图标可从列表中永久移除某个启动选项。在设备上向左滑动可立即从该设备启动。
+                </div>
+                <div class="boot-list-wrap boot-config-list-wrap" id="bootConfigListWrap">
+                  <div class="boot-list" id="bootConfigList">
+                    <button class="boot-item active" type="button" data-boot-id="windows-boot-manager">
+                      <span class="boot-check checked" aria-hidden="true"></span>
+                      <span class="boot-label">Windows Boot Manager</span>
+                      <span class="trash-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="boot-item" type="button" data-boot-id="internal-storage">
+                      <span class="boot-check checked" aria-hidden="true"></span>
+                      <span class="boot-label">Internal Storage</span>
+                      <span class="trash-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="boot-item" type="button" data-boot-id="usb-storage">
+                      <span class="boot-check checked" aria-hidden="true"></span>
+                      <span class="boot-label">USB Storage</span>
+                      <span class="trash-icon" aria-hidden="true"></span>
+                    </button>
+                    <button class="boot-item" type="button" data-boot-id="pxe-network">
+                      <span class="boot-check checked" aria-hidden="true"></span>
+                      <span class="boot-label">PXE Network</span>
+                      <span class="trash-icon" aria-hidden="true"></span>
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div class="boot-advanced-item boot-flash-group">
-                <div class="security-copy">启用电池限制</div>
-                <div class="toggle-control">
-                  <button class="toggle-button off boot-toggle" type="button" aria-label="电池限制已关闭" data-toggle-key="battery-limit"></button>
-                  <div class="toggle-text">关</div>
+
+              <div class="section-gap"></div>
+
+              <div class="boot-flash-group">
+                <h1 class="panel-title">高级选项</h1>
+                <div class="panel-spacer"></div>
+              </div>
+              <div class="boot-advanced-list">
+                <div class="boot-advanced-item boot-flash-group">
+                  <div class="security-copy">CSM 支持</div>
+                  <div class="toggle-control">
+                    <button class="toggle-button off boot-toggle" type="button" aria-label="CSM 支持已关闭" data-toggle-key="csm-support"></button>
+                    <div class="toggle-text">关</div>
+                  </div>
+                </div>
+                <div class="boot-advanced-item boot-flash-group">
+                  <div class="security-copy">远程唤醒（WoL）</div>
+                  <div class="toggle-control">
+                    <button class="toggle-button off boot-toggle" type="button" aria-label="远程唤醒（WoL）已关闭" data-toggle-key="pxe-ipv6"></button>
+                    <div class="toggle-text">关</div>
+                  </div>
+                </div>
+                <div class="boot-advanced-item boot-flash-group">
+                  <div class="security-copy">启用从 USB 设备启动</div>
+                  <div class="toggle-control">
+                    <button class="toggle-button boot-toggle" type="button" aria-label="从 USB 设备启动已开启" data-toggle-key="boot-from-usb"></button>
+                    <div class="toggle-text">开</div>
+                  </div>
+                </div>
+                <div class="boot-advanced-item boot-flash-group">
+                  <div class="security-copy">启用启动配置锁</div>
+                  <div class="toggle-control">
+                    <button class="toggle-button off boot-toggle" type="button" aria-label="启动配置锁已关闭" data-toggle-key="boot-configuration-lock"></button>
+                    <div class="toggle-text">关</div>
+                  </div>
+                </div>
+                <div class="boot-advanced-item boot-flash-group">
+                  <div class="security-copy">启用电池限制</div>
+                  <div class="toggle-control">
+                    <button class="toggle-button off boot-toggle" type="button" aria-label="电池限制已关闭" data-toggle-key="battery-limit"></button>
+                    <div class="toggle-text">关</div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="panel" data-panel-content="about">
-            <h1 class="panel-title">关于 Aether UEFI</h1>
-            <div class="panel-spacer-large"></div>
-            <div class="about-copy">
-              Aether UEFI 是一个用于演示启动流程、恢复流程与登录流程衔接关系的固件界面原型。它不对应任何真实出厂设备，而是面向交互展示、视觉复刻与状态流模拟而设计。
-            </div>
-            <div class="about-section-gap"></div>
-            <div class="about-grid">
-              <div class="about-label">项目版本</div>
-              <div class="about-value">Aether UEFI Preview 0.9</div>
-              <div class="about-label">界面风格</div>
-              <div class="about-value">Surface UEFI Inspired</div>
-              <div class="about-label">渲染方式</div>
-              <div class="about-value">Static HTML / CSS / JavaScript</div>
-              <div class="about-label">目标用途</div>
-              <div class="about-value">UEFI、WinRE 与 Windows 登录流程演示</div>
-              <div class="about-label">当前状态</div>
-              <div class="about-value">可交互原型</div>
-            </div>
-            <div class="about-section-gap"></div>
-            <h1 class="panel-title">主要能力</h1>
-            <div class="panel-spacer"></div>
-            <div class="about-list">
-              <div>支持设备信息、安全、启动项、日期与时间等页面布局演示</div>
-              <div>支持启动项勾选、排序与局部闪屏模拟</div>
-              <div>支持固件设置变化对后续启动行为的扩展设计</div>
-              <div>适合继续扩展为 WinRE、BitLocker 与登录页联动体验</div>
-            </div>
-            <div class="about-credit">由 Codex 协助制作。</div>
-          </section>
-
-          <section class="panel" data-panel-content="exit">
-            <h1 class="panel-title">退出并重启你的设备</h1>
-            <div class="panel-spacer-large"></div>
-            <div class="about-copy">
-              所有更改已被保存。重启以退出固件设置。
-            </div>
-            <div class="security-button-wrap">
-              <button class="security-button" id="restartButton" type="button">重启</button>
-            </div>
-          </section>
-
-          <section class="panel" data-panel-content="date-time">
-            <h1 class="panel-title">设置日期和时间</h1>
-            <div class="panel-spacer date-time-title-spacer"></div>
-            <div class="date-time-subtitle">设置日期和时间菜单</div>
-            <div class="date-time-form">
-              <div class="date-time-row">
-                <div class="date-time-label">当前日期和时间:</div>
-                <div class="date-time-value" id="currentDateTimeValue">2026/03/28 18:42:16</div>
+            <section class="panel" data-panel-content="about">
+              <h1 class="panel-title">关于 Aether UEFI</h1>
+              <div class="panel-spacer-large"></div>
+              <div class="about-copy">
+                Aether UEFI 是一个用于演示启动流程、恢复流程与登录流程衔接关系的固件界面原型。它不对应任何真实出厂设备，而是面向交互展示、视觉复刻与状态流模拟而设计。
               </div>
-              <div class="date-time-row">
-                <div class="date-time-label">新的日期和时间:</div>
-                <input class="date-time-input" id="dateTimeInput" type="text" inputmode="numeric" autocomplete="off" autocapitalize="off" spellcheck="false" value="">
+
+              <div class="about-section-gap"></div>
+              <div class="about-grid">
+                <div class="about-label">项目版本</div>
+                <div class="about-value">Aether UEFI Preview 0.9</div>
+                <div class="about-label">界面风格</div>
+                <div class="about-value">Surface UEFI Inspired</div>
+                <div class="about-label">渲染方式</div>
+                <div class="about-value">Static HTML / CSS / JavaScript</div>
+                <div class="about-label">目标用途</div>
+                <div class="about-value">UEFI、WinRE 与 Windows 登录流程演示</div>
+                <div class="about-label">当前状态</div>
+                <div class="about-value">可交互原型</div>
               </div>
-            </div>
-            <div class="date-time-copy">
-              要设置新的日期和时间，请在“新的日期和时间”编辑框中填写新的日期和时间。填写完成后，按 Enter 提交。
-            </div>
-            <div class="date-time-copy">
-              日期和时间字符串的格式为 YYYY/MM/DD HH:MM:SS。24 小时制必须使用 0 到 23 的数字表示。分隔符 / 和 : 是可选项，也可用空格替代。YYYY 为必填项，其他为选填项，未设置的字段将保持不变。
-            </div>
-            <div class="date-time-examples-intro">以下是一些有效示例</div>
-            <div class="date-time-examples">
-              <div>示例 1 - 2020/02/14 05 52 00</div>
-              <div>示例 2 - 2020/2/14 5:52</div>
-              <div>示例 3 - 2020/2</div>
-            </div>
+
+              <div class="about-section-gap"></div>
+              <h1 class="panel-title">主要能力</h1>
+              <div class="panel-spacer"></div>
+              <div class="about-list">
+                <div>支持设备信息、安全、启动项、日期与时间等页面布局演示</div>
+                <div>支持启动项勾选、排序与局部闪屏模拟</div>
+                <div>支持固件设置变化对后续启动行为的扩展设计</div>
+                <div>适合继续扩展为 WinRE、BitLocker 与登录页联动体验</div>
+              </div>
+
+              <div class="about-credit">由 Codex 协助制作。</div>
+            </section>
+
+            <section class="panel" data-panel-content="exit">
+              <h1 class="panel-title">退出并重启你的设备</h1>
+              <div class="panel-spacer-large"></div>
+              <div class="about-copy">
+                所有更改已被保存。重启以退出固件设置。
+              </div>
+              <div class="security-button-wrap">
+                <button class="security-button" id="restartButton" type="button">重启</button>
+              </div>
+            </section>
+
+            <section class="panel" data-panel-content="date-time">
+              <h1 class="panel-title">设置日期和时间</h1>
+              <div class="panel-spacer date-time-title-spacer"></div>
+              <div class="date-time-subtitle">设置日期和时间菜单</div>
+              <div class="date-time-form">
+                <div class="date-time-row">
+                  <div class="date-time-label">当前日期和时间:</div>
+                  <div class="date-time-value" id="currentDateTimeValue">2026/03/28 18:42:16</div>
+                </div>
+                <div class="date-time-row">
+                  <div class="date-time-label">新的日期和时间:</div>
+                  <input class="date-time-input" id="dateTimeInput" type="text" inputmode="numeric" autocomplete="off" autocapitalize="off" spellcheck="false" value="">
+                </div>
+              </div>
+              <div class="date-time-copy">
+                要设置新的日期和时间，请在“新的日期和时间”编辑框中填写新的日期和时间。填写完成后，按 Enter 提交。
+              </div>
+              <div class="date-time-copy">
+                日期和时间字符串的格式为 YYYY/MM/DD HH:MM:SS。24 小时制必须使用 0 到 23 的数字表示。分隔符 / 和 : 是可选项，也可用空格替代。YYYY 为必填项，其余为选填项，未设置的字段将保持不变。
+              </div>
+              <div class="date-time-examples-intro">以下是一些有效示例</div>
+              <div class="date-time-examples">
+                <div>示例 1 - 2020/02/14 05 52 00</div>
+                <div>示例 2 - 2020/2/14 5:52</div>
+                <div>示例 3 - 2020/2</div>
+              </div>
+            </section>
           </section>
-        </section>
-      </div>
-      </div>
-  <div class="modal-overlay" id="passwordDialog" hidden>
-    <div class="modal-frame">
-      <div class="modal-titlebar">输入密码</div>
-      <div class="modal-body">
-        <h1 class="modal-heading">输入系统密码</h1>
-        <div class="modal-copy">
-          密码可以包含字母、数字以及特殊字符的组合，包括：[@#5%^&*0 ?&lt; &gt;0)0 -= +|"-"]。密码长度最短为 6 个字符，最长为 128 个字符。如果留空系统将删除原有的密码。此后，用户无需输入密码即可直接进入 Aether UEFI 设置界面。
-        </div>
-        <div class="modal-inputs">
-          <input class="modal-input is-active" type="password" spellcheck="false" autocomplete="off" placeholder="新密码">
-          <input class="modal-input" type="password" spellcheck="false" autocomplete="off" placeholder="确认密码">
-        </div>
-        <div class="modal-error" id="passwordSetupError" hidden>密码未满足要求。</div>
-        <div class="modal-actions">
-          <button class="modal-action" type="button">确认</button>
-          <button class="modal-action" type="button">取消</button>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="modal-overlay" id="secureBootDialog" hidden>
-    <div class="modal-frame">
-      <div class="modal-titlebar">安全启动配置</div>
-      <div class="modal-body">
-        <h1 class="modal-heading">更改安全启动配置</h1>
-        <div class="modal-copy">请选择安全启动证书密钥集</div>
-        <div class="modal-option-list">
-          <button class="modal-option-item is-active" type="button" data-secure-boot-option="microsoft-only">仅 Microsoft</button>
-          <button class="modal-option-item" type="button" data-secure-boot-option="microsoft-third-party">Microsoft 和第三方 CA</button>
-          <button class="modal-option-item" type="button" data-secure-boot-option="disabled">无</button>
-        </div>
-        <div class="modal-actions">
-          <button class="modal-action secure-boot-action is-selected" type="button">确认</button>
-          <button class="modal-action secure-boot-action" type="button">取消</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="modal-overlay" id="deleteBootDialog" hidden>
-    <div class="modal-frame">
-      <div class="modal-titlebar">删除选项</div>
-      <div class="modal-body">
-        <h1 class="modal-heading">删除启动项</h1>
-        <div class="modal-copy">以下启动项将从设备中永久删除：</div>
-        <div class="modal-delete-name" id="deleteBootName">Windows Boot Manager</div>
-        <div class="modal-actions">
-          <button class="modal-action delete-boot-action is-selected" type="button">确认</button>
-          <button class="modal-action delete-boot-action" type="button">取消</button>
+
+      <div class="modal-overlay" id="passwordDialog" hidden>
+        <div class="modal-frame">
+          <div class="modal-titlebar">输入密码</div>
+          <div class="modal-body">
+            <h1 class="modal-heading">输入系统密码</h1>
+            <div class="modal-copy">
+              密码可以包含字母、数字以及特殊字符的组合，包括：[@#5%^&amp;*0 ?&lt; &gt;0)0 -= +|"-"]。密码长度最短为 6 个字符，最长为 128 个字符。如果留空系统将删除原有的密码。此后，用户无需输入密码即可直接进入 Aether UEFI 设置界面。
+            </div>
+            <div class="modal-inputs">
+              <input class="modal-input is-active" type="password" spellcheck="false" autocomplete="off" placeholder="新密码">
+              <input class="modal-input" type="password" spellcheck="false" autocomplete="off" placeholder="确认密码">
+            </div>
+            <div class="modal-error" id="passwordSetupError" hidden>密码未满足要求。</div>
+            <div class="modal-actions">
+              <button class="modal-action" type="button">确认</button>
+              <button class="modal-action" type="button">取消</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="modal-overlay" id="authPasswordDialog" hidden>
-    <div class="modal-frame">
-      <div class="modal-titlebar">输入密码</div>
-      <div class="modal-body">
-        <h1 class="modal-heading">输入系统密码</h1>
-        <div class="modal-copy">
-          Aether UEFI 由密码保护。输入密码以管理员身份继续设置，或点击“取消”以受限模式进入。
-        </div>
-        <div class="modal-inputs">
-          <input class="modal-input auth-password-input is-active" type="password" spellcheck="false" autocomplete="off" placeholder="密码">
-        </div>
-        <div class="modal-error" id="authPasswordError" hidden>密码不正确</div>
-        <div class="modal-actions">
-          <button class="modal-action auth-password-action is-selected" type="button">确认</button>
-          <button class="modal-action auth-password-action" type="button">取消</button>
+
+      <div class="modal-overlay" id="secureBootDialog" hidden>
+        <div class="modal-frame">
+          <div class="modal-titlebar">安全启动配置</div>
+          <div class="modal-body">
+            <h1 class="modal-heading">更改安全启动配置</h1>
+            <div class="modal-copy">请选择安全启动证书密钥集</div>
+            <div class="modal-option-list">
+              <button class="modal-option-item is-active" type="button" data-secure-boot-option="microsoft-only">仅 Microsoft</button>
+              <button class="modal-option-item" type="button" data-secure-boot-option="microsoft-third-party">Microsoft 和第三方 CA</button>
+              <button class="modal-option-item" type="button" data-secure-boot-option="disabled">无</button>
+            </div>
+            <div class="modal-actions">
+              <button class="modal-action secure-boot-action is-selected" type="button">确认</button>
+              <button class="modal-action secure-boot-action" type="button">取消</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+
+      <div class="modal-overlay" id="deleteBootDialog" hidden>
+        <div class="modal-frame">
+          <div class="modal-titlebar">删除选项</div>
+          <div class="modal-body">
+            <h1 class="modal-heading">删除启动项</h1>
+            <div class="modal-copy">以下启动项将从设备中永久删除：</div>
+            <div class="modal-delete-name" id="deleteBootName">Windows Boot Manager</div>
+            <div class="modal-actions">
+              <button class="modal-action delete-boot-action is-selected" type="button">确认</button>
+              <button class="modal-action delete-boot-action" type="button">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-overlay" id="authPasswordDialog" hidden>
+        <div class="modal-frame">
+          <div class="modal-titlebar">输入密码</div>
+          <div class="modal-body">
+            <h1 class="modal-heading">输入系统密码</h1>
+            <div class="modal-copy">
+              Aether UEFI 由密码保护。输入密码以管理员身份继续设置，或点击“取消”以受限模式进入。
+            </div>
+            <div class="modal-inputs">
+              <input class="modal-input auth-password-input is-active" type="password" spellcheck="false" autocomplete="off" placeholder="密码">
+            </div>
+            <div class="modal-error" id="authPasswordError" hidden>密码不正确</div>
+            <div class="modal-actions">
+              <button class="modal-action auth-password-action is-selected" type="button">确认</button>
+              <button class="modal-action auth-password-action" type="button">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
