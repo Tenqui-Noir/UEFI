@@ -552,6 +552,7 @@ body.keyboard-mode .toggle-control.keyboard-selected::after {
   outline: none;
   ime-mode: disabled;
   cursor: default;
+  caret-color: transparent;
 }
 
 .date-time-input.keyboard-selected {

@@ -28,6 +28,7 @@ const authPasswordInput = document.querySelector(".auth-password-input");
 const authPasswordError = document.getElementById("authPasswordError");
 const passwordSetupError = document.getElementById("passwordSetupError");
 const uefiShell = document.getElementById("uefiShell");
+const restartButton = document.getElementById("restartButton");
 const modalInputs = passwordDialog ? Array.from(passwordDialog.querySelectorAll(".modal-input")) : [];
 const modalActions = passwordDialog ? Array.from(passwordDialog.querySelectorAll(".modal-action")) : [];
 const modalConfirmButton = modalActions[0] || null;
@@ -707,11 +708,43 @@ function startAuthGate() {
 }
 
 function finishAuthGateReveal() {
-  document.body.classList.remove("auth-gate");
-  document.body.classList.add("auth-gate-reveal");
   window.setTimeout(() => {
-    document.body.classList.remove("auth-gate-reveal");
-  }, 130);
+    document.body.classList.remove("auth-gate");
+    document.body.classList.add("auth-gate-reveal");
+    window.setTimeout(() => {
+      document.body.classList.remove("auth-gate-reveal");
+    }, 130);
+  }, 1500);
+}
+
+function restartIntoUefi() {
+  restrictedMode = false;
+  syncRestrictedMode();
+  startAuthGate();
+  clearKeyboardSelection();
+  navigationArea = "sidebar";
+  sidebarKeyboardIndex = 0;
+  setActivePanel("device-info");
+
+  if (persistedState.uefiPassword) {
+    window.setTimeout(() => {
+      openAuthPasswordDialog(false);
+    }, 1500);
+    return;
+  }
+
+  finishAuthGateReveal();
+}
+
+function enterUefiOnLoad() {
+  startAuthGate();
+  if (persistedState.uefiPassword) {
+    window.setTimeout(() => {
+      openAuthPasswordDialog(false);
+    }, 1500);
+    return;
+  }
+  finishAuthGateReveal();
 }
 
 function clearModalInputs() {
@@ -1126,10 +1159,7 @@ resizeStage();
 applyPersistedState();
 updateCurrentDateTime();
 applyKeyboardSelection();
-if (persistedState.uefiPassword) {
-  startAuthGate();
-  openAuthPasswordDialog(false);
-}
+enterUefiOnLoad();
 
 window.addEventListener("resize", resizeStage);
 window.setInterval(updateCurrentDateTime, 1000);
@@ -1141,6 +1171,9 @@ window.addEventListener("mousedown", () => {
 
 document.querySelectorAll("button, input").forEach((element) => {
   element.addEventListener("mousedown", (event) => {
+    if (element === dateTimeInput) {
+      return;
+    }
     event.preventDefault();
   });
 });
@@ -1332,6 +1365,15 @@ bootChecks.forEach((check) => {
 });
 
 if (dateTimeInput) {
+  dateTimeInput.addEventListener("mousedown", (event) => {
+    if (event.button !== 0) {
+      return;
+    }
+    navigationArea = "panel";
+    panelKeyboardIndex["date-time"] = 0;
+    applyKeyboardSelection();
+  });
+
   dateTimeInput.addEventListener("beforeinput", (event) => {
     if (event.data && normalizeDateTimeInput(event.data).length === 0) {
       event.preventDefault();
@@ -1919,6 +1961,15 @@ if (deleteBootConfirmButton) {
 if (deleteBootCancelButton) {
   deleteBootCancelButton.addEventListener("click", () => {
     closeModal(deleteBootDialog);
+  });
+}
+
+if (restartButton) {
+  restartButton.addEventListener("click", (event) => {
+    if (event.button !== 0 && event.detail !== 0) {
+      return;
+    }
+    restartIntoUefi();
   });
 }
 
