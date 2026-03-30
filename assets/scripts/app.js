@@ -2282,12 +2282,6 @@ window.addEventListener("keydown", (event) => {
     return;
   }
 
-  if (event.ctrlKey && event.key === "Enter") {
-    event.preventDefault();
-    continueToWindowsLoginFromPreScreen();
-    return;
-  }
-
   if (event.key === "Insert") {
     event.preventDefault();
     resetClientState();
