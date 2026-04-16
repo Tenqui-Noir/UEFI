@@ -15,7 +15,7 @@ created by codex.
 
 项目没有构建步骤，也不依赖 Node 包管理器。
 
-直接打开根目录下的 [index.html](/C:/Users/尘柒/IdeaProjects/UEFI/index.html) 即可运行。
+直接打开根目录下的 index.html 即可运行。
 
 如果浏览器因为本地文件策略导致部分资源行为异常，可以用任意静态服务器启动，例如：
 
@@ -73,18 +73,18 @@ python -m http.server 8000
 
 ## 脚本说明
 
-- [app.js](/C:/Users/尘柒/IdeaProjects/UEFI/assets/scripts/app.js)
+- app.js
   - 主入口
   - 负责状态、事件绑定、页面流转和登录页行为
-- [dom.js](/C:/Users/尘柒/IdeaProjects/UEFI/assets/scripts/core/dom.js)
+- dom.js
   - 统一收集 DOM 引用
-- [state.js](/C:/Users/尘柒/IdeaProjects/UEFI/assets/scripts/core/state.js)
+- state.js
   - 默认状态、存储键、安全启动文案
-- [storage.js](/C:/Users/尘柒/IdeaProjects/UEFI/assets/scripts/core/storage.js)
+- storage.js
   - `localStorage` 读写封装
-- [startup-flow.js](/C:/Users/尘柒/IdeaProjects/UEFI/assets/scripts/features/startup-flow.js)
+- startup-flow.js
   - WinRE / 认证页 / 过场动画切换
-- [date-time.js](/C:/Users/尘柒/IdeaProjects/UEFI/assets/scripts/features/date-time.js)
+- date-time.js
   - 日期时间字符串解析和格式化
 
 ## 当前交互约定
